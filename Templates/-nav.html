@@ -1,0 +1,54 @@
+{%load bootstrap%}
+{% load static %}
+
+<header style="background: #ffffff;">
+	<nav class="navbar navbar-expand-lg navigation" id="navbar">
+		<div class="container align-items-center">
+			<a class="navbar-brand" href="\redif\home">
+				<img src="{% static 'images/logo.svg' %}" alt="" class="" style="width: 7.5rem; height:auto">
+			</a>
+			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+				aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="icofont-navigation-menu"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarmain">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+					  <a class="nav-link" href="/redif/home/">Tela inicial</a>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="{% static 'doctor.html' %}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Redaçoes <i class="icofont-thin-down"></i></a>
+						<ul class="dropdown-menu" aria-labelledby="dropdown03">
+							
+							<li><a class="dropdown-item" href="/redif/criar">Enviar</a></li>
+							<li><a class="dropdown-item" href="/redif">Buscar</a></li>
+							
+						</ul>
+					  </li>
+
+					<li class="nav-item"><a class="nav-link" href="#footer">Quem Somos</a></li>
+
+					 <li class="nav-item"><a class="nav-link" href="/redif/Pag-Dicas/PagDicasGeral"> Dicas de Estudos</a></li>
+					 <li class="nav-item"><a class="nav-link" href="https://docs.google.com/document/d/1zSjQhVjvV4H418FqEAB1fpZLyEhNMom0jfDqtOzfCrk/edit?usp=sharing">Documentação</a></li>
+					 {% if not Usuario%}
+					 <li class="nav-item"><a class="nav-link" href="/accounts/login/">Entrar</a></li>
+					 <li class="nav-item bg-primary "><a class="nav-link text-white" href="/accounts/registrar/">Cadastrar</a></li>
+							  
+					  {% endif %}
+					  {% if Usuario%}
+						<li class="nav-item dropdown">
+						  <a class="nav-link dropdown-toggle" href="/redif/perfil/{{ Usuario.username }}/" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont-ui-user"></i>  {{Usuario.username}} <i class="icofont-thin-down"></i></a>
+						  <ul class="dropdown-menu" aria-labelledby="dropdown03">
+							  
+							  <li><a class="dropdown-item" href="/accounts/logout/">Sair<i class="icofont-logout"></i></a></li>
+							  
+						  </ul>
+						</li>
+					  {% endif %}		
+				  </ul>
+			</div>
+		</div>
+	</nav>
+</header>

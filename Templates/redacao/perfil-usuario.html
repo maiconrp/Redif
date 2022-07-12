@@ -1,0 +1,158 @@
+
+{% extends '-index.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block head %}
+<title> Perfil {{ Perfil.username}}</title> 
+{%endblock%}
+
+{%load static%}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card feature-item">
+                <div class="card-header">
+                    Perfil {{ Username}}
+                </div>
+                
+                <div class="card-body ">
+                    <h5 class="card-title">Informações</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Titulacao : {{ Titulacao}}</li>
+                        <li class="list-group-item">Condicao : {{ Condicao}}</li>
+                        <li class="list-group-item">Redacoes avaliadas : {{qtdAvaliadas}}</li>
+                        
+                    </ul>
+                </div>
+                <div class="card-footer text-muted">
+                    Contato : {{ Perfil.email}}
+                </div>
+              </div>
+
+
+            {% if Perfil.id == Usuario.id %}
+            <br>
+                <div class="text-right mr-3">
+                    <a href="/redif/criar/">
+                        <button type="button" class="btn mb-1 btn-primary shadow">
+                            Compartilhar redação <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                        </button>
+                    </a>
+                </div>
+                <h4 class="card-title mt-4">Suas redações: </h1>
+            {% else%}
+                <h4 class="card-title mt-4">Redações de {{Perfil.username}}: </h1>
+            {%endif%}
+          
+        </div>
+    </div>
+    
+    {% if Redacao %}
+    <div class="col">
+        <div class="row"> 
+                {% for r in Redacao %}
+                <!-- Previa Redacao -->      
+                  <div class="col teste comment-area-box m-2">
+                    <div class="comment-info">
+                      <h5 class="mb-1">{{r.titulo|slice:":25"}}</h5>
+                      <div class="card-subtitle">{{r.tema}}</div>
+                    </div>
+                    <br>
+                    <a href="/redif/detalhar/{{ r.id }}">
+                      <div class="text">
+                        <p class="text" style="text-align: justify;">
+                          {{ r.conteudo|slice:":200" }}...
+                        </p>
+                      </div>
+                    </a>
+                    <div class="comment-info">
+                      <small class="text-muted">
+                        {{r.data_criacao}} | 
+                      </small>
+                      <a href="/redif/perfil/{{r.fk_autor.username}}/">
+                        <small class="text-muted">
+                          Autor: {{r.fk_autor.username}}
+                        </small>
+                      </a>
+                    </div>
+                  
+                </div>
+                {% endfor %}
+         </div>    
+               
+     </div>
+    {% else %}
+        <p>Não há redações, clique em compartilhar redações para adicioná-las</p>
+    {% endif %}
+    <br>
+   
+    <br>
+
+    {% if Perfil.id == Usuario.id %}
+        <h4 class="card-title mt-4">Redacoes que você avaliou: </h1>
+    {% else%}
+        <h4 class="card-title mt-4">Redações avaliadas por {{Perfil.username}}: </h1>
+    {%endif%}
+    {% if RedacoesAvaliadas %}
+    <div class="col">
+        <div class="row"> 
+                {% for r in Redacao %}
+                <!-- Previa Redacao -->      
+                  <div class="col teste comment-area-box m-2">
+                    <div class="comment-info">
+                      <h5 class="mb-1">{{r.titulo|slice:":25"}}</h5>
+                      <div class="card-subtitle">{{r.tema}}</div>
+                    </div>
+                    <br>
+                    <a href="/redif/detalhar/{{ r.id }}">
+                      <div class="text">
+                        <p class="text" style="text-align: justify;">
+                          {{ r.conteudo|slice:":200" }}...
+                        </p>
+                      </div>
+                    </a>
+                    <div class="comment-info">
+                      <small class="text-muted">
+                        {{r.data_criacao}} | 
+                      </small>
+                      <a href="/redif/perfil/{{r.fk_autor.username}}/">
+                        <small class="text-muted">
+                          Autor: {{r.fk_autor.username}}
+                        </small>
+                      </a>
+                    </div>
+                  
+                </div>
+                {% endfor %}
+         </div>    
+               
+     </div>
+    {% else %}
+        <p>Você ainda não avaliou nenhuma redação</p>
+    {% endif %}
+          
+        </div>
+        <style>
+            .teste{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 2rem;
+                position: relative;
+                height: 20.60rem;
+                background: #FFFFFF;
+                box-shadow: 0px 0px 26.0323px rgba(0, 42, 106, 0.1);
+                border-radius: 13.0161px;
+                animation: 1s;
+                transition: all 0.3s ease-in-out;
+              }
+          
+                .teste:hover{
+                    transform : scale(1.05, 1.05)
+                }
+          </style>
+    {% endblock %}
+    

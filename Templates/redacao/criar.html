@@ -1,0 +1,49 @@
+{% extends '-index.html' %}
+{% load static %}
+
+{% block title %}Redacoes{%endblock%}
+
+{%load bootstrap%}
+{%load static%}
+{% block content %}
+<section class="page-title bg-1">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<span class="text-white">Redif</span>
+			<h1 class="text-capitalize mb-5 text-lg" style="text-align: center;">Compartilhar Redação</h1>
+			<div class="divider-mb"></div>
+			
+			<!-- <ul class="list-inline breadcumb-nav">
+			  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+			  <li class="list-inline-item"><span class="text-white">/</span></li>
+			  <li class="list-inline-item"><a href="#" class="text-white-50">Our blog</a></li>
+			</ul> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  <br>
+<div class="row justify-content-center">
+    <div class="col-9">
+        <div class="feature-item mb-5 mb-lg-0">
+            <div class="card-body">
+                <form action="/redif/criar/" method="post">
+                    {% csrf_token %}
+
+                    {{ form|bootstrap }}
+                    <input type="submit" class="btn btn-primary" value="Salvar">
+                    <a href="/redif/listar/">
+                        <button type="button" class="btn mb-1">
+                            Cancelar <span class="btn-icon-right"> <i class="fa fa-close"></i> </span>
+                        </button>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

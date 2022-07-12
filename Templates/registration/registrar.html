@@ -1,0 +1,28 @@
+{% extends '-index.html' %}
+{%load bootstrap%}
+{% block content %}
+<section class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-xl-7">
+                <div class="block">
+                    <form action="" method="post" class="feature-item mb-5 mb-lg-0">
+                        {% csrf_token %}
+                        <div class="divider mb-3"></div>
+						<h1 class="mb-3 mt-3"></h1>
+                        <h1 class="card-title">Bem vindo(a)</h1>
+						<h1 class="mb-3 mt-3"></h1>
+    
+                        {{ form|bootstrap }}
+                        <aside>
+                            <p>Já possui uma conta? <a href="/accounts/login">Faça login</p>
+                        </aside>
+                        <input class="btn btn-danger" type="submit" value="registrar" />
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

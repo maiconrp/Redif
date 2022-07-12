@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+{%load bootstrap%}
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+	<meta name="author" content="themefisher.com">
+	{%block head%}
+	{% endblock %}
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}" />
+
+	<!-- bootstrap.min css -->
+	<link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+	<!-- Icon Font Css -->
+	<link rel="stylesheet" href="{% static 'plugins/icofont/icofont.min.css' %}">
+	<!-- Slick Slider  CSS -->
+	<link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick-theme.css' %}">
+
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	
+<body id="top">
+	<style>
+		* {
+			text-align: justify;
+		}
+	</style>
+	{% include '-nav.html' %}
+	<!-- Slider Start -->
+		{%block content%}
+		{% endblock %}
+		<br>
+
+
+
+	<!-- footer Start -->
+	{% include '-footer.html' %}
+
+
+
+
+	<!-- Essential Scripts=====================================-->
+
+<!-- Importando o jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Importando o js do bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- Main jQuery -->
+	<script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+	<!-- Bootstrap 4.3.2 -->
+	<script src="{% static 'plugins/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'plugins/counterup/jquery.easing.js' %}"></script>
+	<!-- Slick Slider -->
+	<script src="{% static 'plugins/slick-carousel/slick/slick.min.js' %}"></script>
+	<!-- Counterup -->
+	<script src="{% static 'plugins/counterup/jquery.waypoints.min.js' %}"></script>
+
+	<script src="{% static 'plugins/shuffle/shuffle.min.js' %}"></script>
+	<script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}"></script>
+	<!-- Google Map -->
+	<script src="{% static 'plugins/google-map/map.js' %}"></script>
+	<script
+		src="{% static 'https//maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/contact.js' %}"></script>
+	<script src="{% static 'js/modal.js' %}"></script>
+	<script src="{% static 'js/CopiarTexto.js' %}"></script>
+
+
+</body>
+
+</html>

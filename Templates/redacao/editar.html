@@ -1,0 +1,43 @@
+{% extends '-index.html' %}
+{% load static %}
+{%load bootstrap%}
+{% block title %} <title>Criar redacão</title> {%endblock%}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/redacoes/style.css'%}">
+{%endblock%}
+
+{% block content %}
+
+<div class="container-fluid col-9" >
+    <div class="feature-item row justify-content-center align-middle bg-danger"  style="height: auto;">
+        <div class="col-9">
+            <h3 class="text-white justify-content-center">
+               Editar redação
+            </h3>
+        </div>       
+    </div>     
+</div>
+
+<br>
+<div class="row justify-content-center">
+    <div class="col-9">
+        <div class="feature-item mb-5 mb-lg-0">
+            <div class="card-body">
+                <form action="/redif/editar/{{id}}/" method="post">
+                    {% csrf_token %}
+
+                    {{ form|bootstrap }}
+                    <input type="submit" class="btn btn-primary" value="Salvar">
+                    <a href="/redif">
+                        <button type="button" class="btn mb-1">
+                            Cancelar <span class="btn-icon-right"> <i class="fa fa-close"></i> </span>
+                        </button>
+                    </a>
+                </div></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
