@@ -39,7 +39,7 @@ def filtrar(form):
     if tema: 
         redacoes = redacoes.filter(tema__icontains = tema) 
     if autor:        
-        redacoes = Redacao.objects.filter(fk_autor = perfil[0])
+        redacoes = redacoes.filter(fk_autor = perfil[0])
        
     if not area: return redacoes
     else:  return filtrarArea(redacoes, area)
